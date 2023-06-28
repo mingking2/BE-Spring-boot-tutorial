@@ -9,16 +9,15 @@
 ## 2. 스프링 웹 개발 기초
 - 정적 컨텐츠
   - static
-  - 프론트엔드꺼 ?
+  - 파일을 그냥 내려준다.
 - MVC와 템플릿 엔진
   - MVC: Model, View, Controller
     - Controller : 내부 로직에 집중
     - View : 화면을 그리는데 집중
     - Model : Controller와 View에서 수행한 것들을 Model로 넘긴다.
 - API
-  - 바로 데이터를 내린다.
-    - html로 하지않고 바로 간다.
-  - JSON 구조
+  - JSON으로 바꾼다.
+  - 객체를 반환한다.
 
 
 
