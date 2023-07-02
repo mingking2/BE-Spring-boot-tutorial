@@ -112,96 +112,23 @@
 
   - 주의 : 스프링 데이터 JPA는 JPA를 편리하게 사용하도록 도와주는 기술이다. 따라서 JPA를 먼저 학습한 후에 스프링 데이터 JPA를 학습해야 한다.
 
-# 버전 수정 이력
-
-## v2022-11-28
-
-* 스프링 부트 3.0 내용 추가
-
-* 프로젝트 선택에서 `Gradle - Groovy` 추가
 
 
-
-## v2022-09-04
-
-* 오타 `helloConroller` -> `helloController` (hswkd9895님 도움)
-
-* 코드 오타 `template/` -> `templates/` (anthologia님 도움)
-
-
-
-## v2021-12-01
-
-*주의!*
-
-h2 데이터베이스는 꼭 다음 링크에 들어가서 *1.4.200* 버전을 설치해주세요.
-
-최근에 나온 2.0.206 버전을 설치하면 일부 기능이 정상 동작하지 않습니다.
-
-https://www.h2database.com/html/download-archive.html
-
-
-
-만약 이미 설치하고 실행까지 했다면 다시 설치한 이후에 *~/test.mv.db* 파일을 꼭 삭제해주세요.
-
-그렇지 않으면 다음 오류가 발생하면서 접속되지 않습니다.
-
-General error: "The write format 1 is smaller than the supported format 2 [2.0.206/5]" [50000-202] HY000/50000
-
-
-
-## v2021-07-18
-
-스프링 부트 최신 버전 선택 설명 추가
-
-## v2021-03-03
-
-* 윈도우 사용자는 h2.bat 실행 추가
-
-## v2021-02-11
-
-* 회원 리포지토리 테스트 케이스 작성에서 result, member 위치 변경
-
-* 도움 주신 분 : 박동훈님
-
-## v1.7 - 2020-11-23
-
-* 스프링부트 2.4 에서 데이터베이스 커넥션 오류 해결방안 추가
-
-* 스프링부트 2.4부터는 `spring.datasource.username=sa`를 꼭 추가해주어야 한다. 그렇지 않으면 `Wrong user name or password` 오류가 발생한다.
-
-* [Databases that support embedded and non-embedded modes are always detected as embedded  by somayaj · Pull Request #23693 · spring-projects/spring-boot · GitHub](https://github.com/spring-projects/spring-boot/pull/23693)
-
-## v1.6 - 2020-10-14
-
-* helloController -> memberController 이미지 오류 수정 (도움주신분: 최성규님)
-
-## v1.5 - 2020-10-10
-
-*  IntelliJ JDK 설치 확인 추가
-
-## v1.4 - 2020-09-18
-
-* 인텔리J 커뮤니티(무료) 버전에서 `application.properties` 파일에서 키가 회색으로 인식 설명
-
-## v1.3 - 2020-09-07
-
-* 윈도우 gradlew.bat -> gradlew로 변경
-
-## v1.2 - 2020-08-28
-
-* 윈도우 사용자를 위한 IntelliJ 단축키 조회 방법 추가
-
-## v1.1 - 2020-08-28
-
-* 윈도우 사용자를 위한 도움 추가
-
-윈도우에서 맥의 iTerm이 없는데 어떻게 하나요? 링크 추가
-
-* 도움 주신 분: 루시님
-
-## v1.0 - 2020-07-20
-
-* 강의 오픈
-
- 
+## 7. AOP
+- AOP가 필요한 상황
+  - 모든 메소드의 호출 시간을 측정하고 싶다면?
+  - 공통 관심 사항(cross-cutting concern) vs 핵심 관심 사항(core concern)
+  - 회원 가입 시간, 회원 조회 시간을 측정하고 싶다면?
+  - 문제
+    - 회원가입, 회원 조회에 시간을 측정하는 기능은 핵심 관심 사항이 아니다.
+    - 시간을 측정하는 로직은 공통 관심 사항이다.
+    - 시간을 측정하는 로직과 핵심 비즈니스의 로직이 섞여서 유지보수가 어렵다.
+    - 시간을 측정하는 로직을 별도의 공통 로직으로 만들기 매우 어렵다.
+    - 시간을 측정하는 로직을 변경할 때 모든 로직을 찾아가면서 변경해야 한다.
+- AOP 적용
+  - 해결
+    - 회원가입, 회원 조회등 핵심 관심사항과 시간을 측정하는 공통 관심 사항을 분리한다.
+      - 시간을 측정하는 로직을 별도의 공통 로직으로 만들었다.
+      - 핵심 관심 사항을 깔끔하게 유지할 수 있다.
+      - 변경이 필요하면 이 로직만 변경하면 된다.
+      - 원하는 적용 대상을 선택할 수 있다.
